@@ -1,17 +1,18 @@
-package tests;
+package scenarios;
+
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
-
-public class AppiumTest {
-
+public class PlayMarket {
     public static void main(String[] args) {
 
         AppiumDriver<MobileElement> driver = null;
@@ -26,7 +27,6 @@ public class AppiumTest {
         caps.setCapability("appPackage", "com.android.vending");
         caps.setCapability("appActivity", "com.android.vending.AssetBrowserActivity");
         caps.setCapability("noReset", "true");
-
         //Instantiate Appium Driver
         try {
             driver = new AndroidDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), caps);
@@ -40,16 +40,11 @@ public class AppiumTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        //Find element using ID property
-        driver.findElement(By.id("com.android.vending:id/search_box_idle_text")).click();
-//Find 'Google Play Store' element and set the value Google
-        driver.findElement(By.id("com.android.vending:id/search_box_text_input")).sendKeys("Google");
+        MobileElement element = driver.findElement(MobileBy.AndroidUIAutomator(
+                "new UiScrollable(new UiSelector().resourceId(\"com.android.vending:id/tab_recycler_view\")).scrollIntoView("
+                        + "new UiSelector().textContains(\"Понравится\").instance(1))"));
 
-        //Press Enter key from Keyboard using any of the below methods
-//        ((AndroidDriver<MobileElement>) driver).pressKeyCode(66);
-        //OR
-        //The below code might now work for you, as some keyboards use Search button instead of ENTER. Hence,
-        // there are chances that the below line would fail on specific devices
-        driver.findElement(By.id("com.android.vending:id/search_box_text_input")).sendKeys(Keys.ENTER);
+        //Perform the action on the element
+        System.out.println(element.getAttribute("text")); //This line should print Recommended for You
     }
 }
