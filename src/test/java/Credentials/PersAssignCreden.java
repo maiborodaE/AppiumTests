@@ -6,6 +6,8 @@ public class PersAssignCreden {
     public static String fingerPoru4XPath = "//android.view.View/android.view.View/android.widget.ImageView";
     public static String addPAbuttonID = "effie.app.com.effie:id/fab_add_task";
     public static String syncPAbuttonID = "effie.app.com.effie:id/sync_tasks";
+//    public static String syncPAbuttonXPath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.widget.ImageView";
+
 
 
 

@@ -6,7 +6,12 @@ import java.io.*;
 public class CmdLine {
     public static void main(String[] args) throws Exception {
         ProcessBuilder builder = new ProcessBuilder(
-                "cmd.exe", "/c", "appium --address localhost --port 4723 --session-override");
+//                "cmd.exe", "/c", "appium --address localhost --port 4723 --session-override");
+//        "cmd.exe", "/c", "adb kill-server");
+//        "cmd.exe", "/c", "adb start-server");
+        "cmd.exe", "/c", "adb devices");
+
+
         builder.redirectErrorStream(true);
         Process p = builder.start();
 //        p.waitFor();

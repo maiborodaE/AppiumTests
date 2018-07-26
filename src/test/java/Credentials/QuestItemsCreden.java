@@ -31,6 +31,8 @@ public class QuestItemsCreden {
     public static String fifthQiXPath = "//android.widget.TextView[@text = 'Some quest item 5']";
     public static String sixthQiXPath = "//android.widget.TextView[@text = 'Some quest item 6']";
     public static String seventhQiXPath = "//android.widget.TextView[@text = 'Some quest item 7']";
+    public static String eighthQiXPath = "//android.widget.TextView[@text = 'Some quest item 8']";
+
 
 
 
