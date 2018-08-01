@@ -204,12 +204,12 @@ public class TestMethods {
         driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
         driver.findElement(By.xpath("//android.widget.CheckedTextView[@text = 'Плановый визит']")).click();
         driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
-        System.out.println("Анкета логика данет с фото");
 //        Этап "ВИЗИТ"
 //    Шаг-поручения(СКИП)
         driver.findElement(By.xpath("//android.widget.Button[@text = 'Поручения на торговую точку']")).click();
         driver.findElementByAccessibilityId(backButtonAccID).click();
 //    Первая анкета
+        System.out.println("Анкета логика данет с фото");
         driver.findElement(By.xpath("//android.widget.Button[@text = 'Анкета логика данет с фото (отчетность)']")).click();
 //        driver.findElement(By.id(okButtonID)).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(firstQiXPath))).click();
@@ -371,10 +371,6 @@ public class TestMethods {
         System.out.println("Dropdown");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(firstQiXPath))).click();
         driver.findElementById(inputAnswerID).sendKeys("In stock");
-//        MobileElement el4 = (MobileElement) driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.widget.RelativeLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]");
-//        MobileElement el4 = (MobileElement) driver.findElementByXPath("//*[@text='В наличии']");
-//        //android.widget.LinearLayout[contains(@text,'В нал')]
-//        el4.click();
         driver.hideKeyboard();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(firstQiXPath))).click();
 //  QR code
