@@ -11,8 +11,14 @@ public class PersAssignCreden {
 
 
 
+// Меню "Подтвердить"
+public static String menuConfirmXPath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.widget.LinearLayout/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.support.v7.app.ActionBar.Tab[2]";
 
-    //   Меню "Открытые поручения"
+    //    okNEok
+    public static String okNeokButtonID = "effie.app.com.effie:id/action_approve";
+
+    //   Меню "Сделать"
+    public static String menuSdelatXPath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.widget.LinearLayout/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.support.v7.app.ActionBar.Tab[1]";
     public static String editNewPAXPath = "//android.widget.TextView[@text = 'Some Title']";
 
 //    Меню "Создание поручения":

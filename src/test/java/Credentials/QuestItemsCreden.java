@@ -20,7 +20,12 @@ public class QuestItemsCreden {
     public static String inputAnswerID = "effie.app.com.effie:id/input_answer_not_hide";
 //          Обычный коммнет в вопросе
     public static String commentID = "effie.app.com.effie:id/input_comments";
+//Коммент в табличном виде
+public static String commentTablID = "effie.app.com.effie:id/quest_indicator_comment";
 
+
+
+// Quest Category
 
 
     //    Xpath quests:
@@ -32,10 +37,12 @@ public class QuestItemsCreden {
     public static String sixthQiXPath = "//android.widget.TextView[@text = 'Some quest item 6']";
     public static String seventhQiXPath = "//android.widget.TextView[@text = 'Some quest item 7']";
     public static String eighthQiXPath = "//android.widget.TextView[@text = 'Some quest item 8']";
-
-
-
-
+//    PG
+    public static String vikladkaCatXPath = "//android.widget.TextView[@text = ' Выкладка товара']";
+    public static String vikladkaXPath = "//android.widget.TextView[@text = 'Выкладка товара']";
+//Tabl Vid
+    public static String answerToFirstXPath = "//android.widget.TableRow[2]/android.widget.EditText";
+    public static String answerToSecondXPath = "//android.widget.TableRow[4]/android.widget.EditText";
 
 
 
