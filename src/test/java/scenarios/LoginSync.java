@@ -22,16 +22,7 @@ public class LoginSync {
         driver.findElement(By.id(savePswrdID)).click();
         driver.findElement(By.id(loginByttonID)).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(startDayButtonID))).click();
-        //Synchronization
-        driver.findElement(By.id("effie.app.com.effie:id/step_button")).click();
-        Thread.sleep(2000);
-        //Принять данные для начала работы
-        driver.findElement(By.id("android:id/button1")).click();
-        //Wait for sync
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("effie.app.com.effie:id/md_buttonDefaultPositive"))).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.Button[@text = 'Завершение этапа']"))).click();
-        driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
-        //Etap Marshrut
+        //Etap Marshrut - возможно стоит перенести в отдельный класс
 ////Добавление ТТ в маршрут
 //        //Добавление ТТ в маршрут
 //        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.view.View/android.widget.ImageView"))).click();

@@ -11,6 +11,7 @@ public class MenuButtonsCreden {
 //    Interfaces
     public static String gamburgerMenuID = "Open navigation drawer";
     public static String backButtonAccID = "Перейти вверх";
+    public static String finishPaStep = "Выполнить шаг";
 //    Sync Menu
     public static String syncMenuXPath = "//android.widget.CheckedTextView[@text = 'Синхронизация']";
     public static String sendAllButtonID = "effie.app.com.effie:id/sync_send_media_files";
@@ -23,7 +24,7 @@ public class MenuButtonsCreden {
 
     //ok or next button
     public static String skipButtonID = "android:id/button1";
-    public static String commitButtonID = "effie.app.com.effie:id/btn_n";
+    public static String commitButtonID = "effie.app.com.effie:id/md_buttonDefaultPositive";
     public static String positiveButtonID =  "effie.app.com.effie:id/md_buttonDefaultPositive";
 
 //    decline button

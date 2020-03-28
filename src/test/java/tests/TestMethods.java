@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import scenarios.LoginSync;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -31,33 +32,10 @@ public class TestMethods {
     }
 
     public void PAfunctionalTEST() throws InterruptedException {
-        WebDriverWait wait = new WebDriverWait(driver, 40);
+        WebDriverWait wait = new WebDriverWait(driver, 60);
         //Login
-        driver.findElement(By.id(loginInputID)).sendKeys("u0auto2@effie.ua");
-        driver.hideKeyboard();
-        driver.findElement(By.id(pswrdInputID)).sendKeys("testPass");
-        driver.hideKeyboard();
-
-        //Запомнить пароль
-        driver.findElement(By.id("effie.app.com.effie:id/checkBoxSavePass")).click();
-
-        driver.findElement(By.id(loginByttonID)).click();
-
-
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(startDayButtonID))).click();
-
-
-        //Synchronization
-        driver.findElement(By.id("effie.app.com.effie:id/step_button")).click();
-        Thread.sleep(2000);
-        //Принять данные для начала работы
-//        driver.findElement(By.id("effie.app.com.effie:id/sync_receive_full_option")).click();
-        driver.findElement(By.id("android:id/button1")).click();
-        //Wait for sync
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("effie.app.com.effie:id/md_buttonDefaultPositive"))).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.Button[@text = 'Завершение этапа']"))).click();
-        driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
-
+        LoginSync loginSync = new LoginSync();
+        loginSync.loginToSync(driver, new WebDriverWait(driver, 60));
 
 //      Модуль с поручениями:
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id((gamburgerMenuID)))).click();
@@ -140,12 +118,11 @@ public class TestMethods {
         driver.findElementById(positiveButtonID).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text = '1']"))).isDisplayed();
         driver.findElementById(positiveButtonID).click();
-//        ПОДТВЕРЖДЕНИЕ ПОРУЧЕНИЯ
-        System.out.println("Подвтерждение поручения");
+//        ОТКЛОНЕНИЕ ПОРУЧЕНИЯ
+        System.out.println("ОТКЛОНЕНИЕ поручения");
         driver.findElementByXPath(menuConfirmXPath).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(editNewPAXPath))).click();
-        driver.findElementById(okNeokButtonID).click();
-        driver.findElementById(declineButtonID).click();
+        driver.findElementById(rejectPoru4ID).click();
         driver.findElementById(inputCommentID).sendKeys("Some comment");
         driver.findElementById(declineButtonID).click();
         driver.findElementById(syncPAbuttonID).click();
@@ -153,6 +130,7 @@ public class TestMethods {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text = '1']"))).isDisplayed();
         driver.findElementById(positiveButtonID).click();
 //        ПЕРЕВЫПОЛНЕНИЕ ПОРУЧЕНИЯ
+        System.out.println("ПЕРЕВЫПОЛНЕНИЕ поручения");
         driver.findElementByXPath(menuSdelatXPath).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(editNewPAXPath))).click();
         driver.findElementById("effie.app.com.effie:id/action_task_close").click();
@@ -168,14 +146,18 @@ public class TestMethods {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text = '1']"))).isDisplayed();
         driver.findElementById(positiveButtonID).click();
 //        ПОДТВЕРЖДЕНИЕ ПОРУЧЕНИЯ
+        System.out.println("Подвтерждение поручения");
         driver.findElementByXPath(menuConfirmXPath).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(editNewPAXPath))).click();
-        driver.findElementById(okNeokButtonID).click();
+        driver.findElementById(aprovePoru4ID).click();
         driver.findElementById(positiveButtonID).click();
         driver.findElementById(syncPAbuttonID).click();
         driver.findElementById("effie.app.com.effie:id/md_buttonDefaultPositive").click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.LinearLayout/android.widget.TextView[1][@text = 'Синхронизация поручений прошла успешно']")));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text = '1']"))).isDisplayed();
         driver.findElementById(positiveButtonID).click();
+
+
 
         System.out.println("Test Pers Assig pass");
         System.out.println(LocalDateTime.now());
@@ -183,7 +165,7 @@ public class TestMethods {
     }
 
     public void VisitQItest() throws InterruptedException {
-        WebDriverWait wait = new WebDriverWait(driver, 60);
+        WebDriverWait wait = new WebDriverWait(driver, 120);
         driver.findElement(By.id(loginInputID)).sendKeys("u0auto2@effie.ua");
         driver.hideKeyboard();
         driver.findElement(By.id(pswrdInputID)).sendKeys("testPass");
@@ -194,16 +176,10 @@ public class TestMethods {
         driver.findElement(By.id(loginByttonID)).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(startDayButtonID))).click();
 
-        //Synchronization
-        driver.findElement(By.id("effie.app.com.effie:id/step_button")).click();
-        Thread.sleep(2000);
-        //Принять данные для начала работы
-//        driver.findElement(By.id("effie.app.com.effie:id/sync_receive_full_option")).click();
-        driver.findElement(By.id("android:id/button1")).click();
+        //Synchronization - действия по синхронизации  убрали после редизайна МК - она начинается автоматически
+//        driver.findElement(By.id("effie.app.com.effie:id/btn_sync")).click();
         //Wait for sync
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("effie.app.com.effie:id/md_buttonDefaultPositive"))).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.Button[@text = 'Завершение этапа']"))).click();
-        driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("effie.app.com.effie:id/md_buttonDefaultPositive"))).click();
         //Etap Marshrut
 //Добавление ТТ в маршрут
         //Добавление ТТ в маршрут
@@ -235,13 +211,13 @@ public class TestMethods {
 //        Этап "ВИЗИТ"
 //    Шаг-поручения(СКИП)
         driver.findElement(By.xpath("//android.widget.Button[@text = 'Поручения на торговую точку']")).click();
-        driver.findElementByAccessibilityId(backButtonAccID).click();
+        driver.findElementByAccessibilityId(finishPaStep).click();
 //    Первая анкета
         System.out.println("Анкета логика данет с фото");
         driver.findElement(By.xpath("//android.widget.Button[@text = 'Анкета логика данет с фото (отчетность)']")).click();
 //        Переход в древовидный режим анкеты режим
         driver.findElementByAccessibilityId("Другие параметры").click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[3]/android.widget.RelativeLayout/android.widget.TextView"))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[3]/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.TextView"))).click();
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(firstQiXPath))).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(answerDaID))).click();
@@ -302,8 +278,9 @@ public class TestMethods {
 //  QR code
         System.out.println("QR code");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(secondQiXPath))).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(inputAnswerID))).sendKeys("50");
-        driver.hideKeyboard();
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(inputAnswerID))).sendKeys("50");
+//        driver.hideKeyboard();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("effie.app.com.effie:id/imageButtonCannot"))).click();
         driver.findElement(By.id(photoImageButtonID)).click();
         driver.findElement(By.id(cameraTypeID)).click();
         Thread.sleep(2000);
@@ -390,6 +367,22 @@ public class TestMethods {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(conformPhotoID))).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(eighthQiXPath))).click();
 
+//    Diapazon
+        System.out.println("Diapazon");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(ninethQiXPath))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(inputAnswerID))).click();
+        driver.findElement(By.id(popupInputID)).sendKeys("5");
+        driver.findElement(By.id(positiveButtonID)).click();
+        driver.findElement(By.id(popupInputID)).sendKeys("50");
+        driver.findElement(By.id(positiveButtonID)).click();
+        Thread.sleep(2000);
+        driver.findElement(By.id(photoImageButtonID)).click();
+        driver.findElement(By.id(cameraTypeID)).click();
+        Thread.sleep(2000);
+        driver.findElement(By.id(makePhotoID)).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(conformPhotoID))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(ninethQiXPath))).click();
+
 //  Завершение анкеты
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(finishQhID))).click();
 //        driver.findElement(By.id(okButtonID)).click();
@@ -407,7 +400,8 @@ public class TestMethods {
 //  QR code
         System.out.println("QR code");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(secondQiXPath))).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(inputAnswerID))).sendKeys("50");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("effie.app.com.effie:id/imageButtonCannot"))).click();
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(inputAnswerID))).sendKeys("50");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(secondQiXPath))).click();
         driver.hideKeyboard();
 //  Drobnoe
@@ -458,16 +452,26 @@ public class TestMethods {
         Thread.sleep(2000);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(eighthQiXPath))).click();
 
+
+//    Diapazon
+        System.out.println("Diapazon");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(ninethQiXPath))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(inputAnswerID))).click();
+        driver.findElement(By.id(popupInputID)).sendKeys("5");
+        driver.findElement(By.id(positiveButtonID)).click();
+        driver.findElement(By.id(popupInputID)).sendKeys("50");
+        driver.findElement(By.id(positiveButtonID)).click();
+
 //  Завершение анкеты
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(finishQhID))).click();
 //        driver.findElement(By.id(okButtonID)).click();
 
-        driver.findElement(By.xpath("//android.widget.Button[@text = 'Завершение этапа']")).click();
+        driver.findElement(By.xpath("//android.widget.Button[@text = 'Завершение визита']")).click();
 //        driver.findElement(By.id(okButtonID)).click();
 //        Проверка на снятие GPS
         Thread.sleep(5000);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("effie.app.com.effie:id/ok"))).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("android:id/button1"))).click();
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("effie.app.com.effie:id/ok"))).click();
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("android:id/button1"))).click();
         System.out.println("Test Visits pass");
 
 
@@ -476,7 +480,8 @@ public class TestMethods {
         driver.findElementByXPath(syncMenuXPath).click();
         driver.findElementById(sendAllButtonID).click();
         driver.findElementById(syncButtonID).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("effie.app.com.effie:id/md_buttonDefaultPositive"))).click();
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.LinearLayout/android.widget.TextView[2][@text = 'Данные отправлены']")));
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("effie.app.com.effie:id/md_buttonDefaultPositive"))).click();
 
         System.out.println("Test Sync Send pass");
         System.out.println(LocalDateTime.now());

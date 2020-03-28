@@ -43,7 +43,7 @@ public class AppiumTests {
 
     @Test
     public void visitQI() throws InterruptedException {
-        TestMethods testMethods = new TestMethods((AndroidDriver) driver, new WebDriverWait(driver, 40));
+        TestMethods testMethods = new TestMethods((AndroidDriver) driver, new WebDriverWait(driver, 120));
         testMethods.VisitQItest();
     }
     @Test
@@ -81,7 +81,7 @@ public class AppiumTests {
         //        Этап "ВИЗИТ"
 //    Шаг-поручения(СКИП)
         driver.findElement(By.xpath("//android.widget.Button[@text = 'Поручения на торговую точку']")).click();
-        driver.findElementByAccessibilityId(backButtonAccID).click();
+        driver.findElementByAccessibilityId(finishPaStep).click();
 //    Анкета PG
         System.out.println("Анкета PG");
         driver.findElementByXPath("//android.widget.Button[@text = 'Анкета PG (отчетность)']").click();
@@ -139,7 +139,7 @@ public class AppiumTests {
  //        Этап "ВИЗИТ"
 //    Шаг-поручения(СКИП)
         driver.findElement(By.xpath("//android.widget.Button[@text = 'Поручения на торговую точку']")).click();
-        driver.findElementByAccessibilityId(backButtonAccID).click();
+        driver.findElementByAccessibilityId(finishPaStep).click();
 //    Первая анкета
         System.out.println("Анкета логика данет с фото");
         driver.findElementByXPath("//android.widget.Button[@text = 'Анкета логика данет с фото (отчетность)']").click();
@@ -178,7 +178,7 @@ public class AppiumTests {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(finishQhID))).click();
 //        Завершить визит, указав причину
         driver.findElement(By.id("Другие параметры")).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text = 'Завершить визит']"))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text = 'Прервать визит']"))).click();
         driver.findElement(By.id(declineButtonID)).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text = 'Точка сгорела']"))).click();
         driver.findElement(By.id(positiveButtonID)).click();
