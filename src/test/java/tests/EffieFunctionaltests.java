@@ -16,6 +16,8 @@ import java.time.LocalDateTime;
 import static Credentials.MenuButtonsCreden.*;
 import static Credentials.PersAssignCreden.*;
 import static Credentials.QuestItemsCreden.*;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+
 public class EffieFunctionaltests {
     public static void main(String[] args) throws InterruptedException {
         AppiumDriver<MobileElement> driver = null;
@@ -24,8 +26,10 @@ public class EffieFunctionaltests {
         //Set the Desired Capabilities
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("deviceName", "My Phone");
-//        caps.setCapability("udid", "310072c8b3d92300"); //Gsamsung 5.1.1. tablet
-                caps.setCapability("udid", "92012a9704bc154a"); //Samsung SM-J320H 5.1.1. MOBILE
+        caps.setCapability("udid", "310072c8b3d92300"); //Gsamsung 5.1.1. tablet
+//                caps.setCapability("udid", "92012a9704bc154a"); //Samsung SM-J320H 5.1.1. MOBILE
+//        caps.setCapability("udid", "52003f78ec665421"); //Samsung 7.0 J7 Mobile
+
 //        caps.setCapability("udid", "30041c9e8a5bc200"); // samsung 4.4.4
 //        caps.setCapability("udid", "B5GBB18130152285"); //huawey 6.0
 
@@ -42,8 +46,11 @@ public class EffieFunctionaltests {
         caps.setCapability("appActivity", "effie.app.com.effie.main.activities.LoginActivity");
         caps.setCapability("noReset", false);
 
+        AppiumDriverLocalService service = AppiumDriverLocalService.buildDefaultService();
+        service.start();
 
 
+//        cmd /c "C:/Program Files (x86)/Appium/node.exe" "C:/Program Files (x86)/Appium/node_modules/appium/bin/Appium.js" "--address 0.0.0.0 --chromedriver-port 9516 --bootstrap-port 4725 --selendroid-port 8082 --no-reset --local-timezone"
 
         //Instantiate Appium Driver
         try {
@@ -205,7 +212,7 @@ public class EffieFunctionaltests {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(fourthQiXPath))).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(inputAnswerID))).click();
         Thread.sleep(2000);
-        MobileElement el2 = (MobileElement) driver.findElementByAccessibilityId("09 апреля 2018");
+        MobileElement el2 = (MobileElement) driver.findElementByAccessibilityId("09 мая 2018");
         el2.click();
         MobileElement el3 = (MobileElement) driver.findElementById(skipButtonID);
         el3.click();
@@ -252,7 +259,7 @@ public class EffieFunctionaltests {
         driver.findElementById(okButtonID).click();
         System.out.println("Test Sync Send pass");
         System.out.println(LocalDateTime.now());
-
+        service.stop();
 }
 
 

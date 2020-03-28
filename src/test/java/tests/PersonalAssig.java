@@ -47,37 +47,35 @@
 //
 //    }
 //
-//    @Test
-//    public void sampleTest() throws InterruptedException {
-//        WebDriverWait wait = new WebDriverWait(driver,20);
-//
-//        //        Для 6го и 7го андроида:
-////        MobileElement allowButton = (MobileElement) driver.findElementById(allowButtonID);
-////            allowButton.click();
-////            allowButton.click();
-////            allowButton.click();
-//
-//
+//    public void PAfunctionalTEST() throws InterruptedException {
+//        WebDriverWait wait = new WebDriverWait(driver, 40);
 //        //Login
 //        driver.findElement(By.id(loginInputID)).sendKeys("u0auto2@effie.ua");
 //        driver.hideKeyboard();
 //        driver.findElement(By.id(pswrdInputID)).sendKeys("testPass");
 //        driver.hideKeyboard();
+//
+//        //Запомнить пароль
+//        driver.findElement(By.id("effie.app.com.effie:id/checkBoxSavePass")).click();
+//
 //        driver.findElement(By.id(loginByttonID)).click();
+//
+//
 //        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(startDayButtonID))).click();
 //
 //
 //        //Synchronization
 //        driver.findElement(By.id("effie.app.com.effie:id/step_button")).click();
 //        Thread.sleep(2000);
-//        //Only Text
-//        driver.findElement(By.id("effie.app.com.effie:id/sync_receive_text")).click();
+//        //Принять данные для начала работы
+////        driver.findElement(By.id("effie.app.com.effie:id/sync_receive_full_option")).click();
 //        driver.findElement(By.id("android:id/button1")).click();
 //        Thread.sleep(2000);
 //        driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
 //        Thread.sleep(20000);
 //        //Wait for sync
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("effie.app.com.effie:id/btn_p"))).click();
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("effie.app.com.effie:id/md_buttonDefaultPositive"))).click();
+////        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("effie.app.com.effie:id/md_buttonDefaultPositive"))).click();
 //        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.Button[@text = 'Завершение этапа']"))).click();
 //        driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
 //
@@ -93,8 +91,8 @@
 //        driver.findElementById("effie.app.com.effie:id/checkBoxAddAs").click();
 //        driver.findElementById("effie.app.com.effie:id/fab_confirm").click();
 //        driver.findElementById("effie.app.com.effie:id/textTaskToDate").click();
-//        MobileElement el14 = (MobileElement) driver.findElementByAccessibilityId("09 апреля 2018");
-//        el14.click();
+////        MobileElement el14 = (MobileElement) driver.findElementByAccessibilityId("09 мая 2018");
+////        el14.click();
 //        driver.findElementById(skipButtonID).click();
 //        driver.findElementById(imageAddButtonID).click();
 //        driver.findElementByXPath(photoCHoiceButtonXPath).click();
@@ -117,11 +115,11 @@
 ////        Выполнение поручения
 //        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(editNewPAXPath))).click();
 //        //        кнопка "редактирования поручения"
-//        driver.findElementById("effie.app.com.effie:id/action_edit_tasks").click();
+////        driver.findElementById("effie.app.com.effie:id/action_edit_tasks").click();
 //        driver.findElementById("effie.app.com.effie:id/action_task_close").click();
 //        driver.findElementById("effie.app.com.effie:id/input_comments").sendKeys("Some comment");
 //        driver.findElementById("effie.app.com.effie:id/photo_img").click();
-//        driver.findElementByXPath("//android.widget.LinearLayout[3]/android.widget.ImageView[@resource-id = 'android:id/icon']").click();
+////        driver.findElementByXPath("//android.widget.LinearLayout[3]/android.widget.ImageView[@resource-id = 'android:id/icon']").click();
 //        driver.findElement(By.id(cameraTypeID)).click();
 //        Thread.sleep(2000);
 //        driver.findElement(By.id(makePhotoID)).click();
@@ -132,7 +130,7 @@
 ////        driver.findElementById("effie.app.com.effie:id/taskStatus").click();
 ////        driver.findElementByXPath("//android.widget.TextView[@text = 'Закрыто']").click();
 ////        driver.findElementById("effie.app.com.effie:id/taskComments").sendKeys("Some comment");
-//        driver.findElementByAccessibilityId("Перейти вверх").click();
+////        driver.findElementByAccessibilityId("Перейти вверх").click();
 //        driver.findElementById(syncPAbuttonID).click();
 //        driver.findElementById("effie.app.com.effie:id/md_buttonDefaultPositive").click();
 //        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.TextView[@text = '1']"))).isDisplayed();
@@ -141,11 +139,5 @@
 //        System.out.println("Test Pers Assig pass");
 //        System.out.println(LocalDateTime.now());
 //
-//
 //    }
-//
-////    @After
-////    public void tearDown() {
-////        driver.quit();
-////    }
 //}
